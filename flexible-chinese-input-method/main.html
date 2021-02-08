@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script>
+      document.addEventListener('keydown', logKey);
+      const key_event_fields = [
+        'key',
+        //'charCode',
+        'keyCode',
+        'repeat',
+        'shiftKey',
+        'ctrlKey',
+        'altKey',
+        'metaKey',
+        'code',
+      ];
+    
+      function logKey(e) {
+        logging_text = '';
+        for (const element of key_event_fields) {
+          logging_text += e[element] + '\t';
+        }
+        document.getElementById('keyStrokeLogger').value = 
+          (logging_text + '\n' + document.getElementById('keyStrokeLogger').value);
+        console.log(e);
+      }
+    </script>
+  </head>
+  <body>
+    Key stroke logger (for debugging purpose)
+    <br/>
+    <textarea id="keyStrokeLogger" name="keyStrokeLogger" rows="10" cols="99" readonly></textarea>
+  </body>
+</html>
